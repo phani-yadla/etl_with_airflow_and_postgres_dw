@@ -141,4 +141,4 @@ Alternative 1: Let's say we are receiving huge number of files to be processed. 
 
 Alternative 2: If our requirements surpass the capacity of airflow cluster and if have an ETL paradigm implemented, lets say we use spark, we could use spark to read these files, process them and dump the results at a targeted destination.
 
-Alternative #: If our requirements surpass the capacity of airflow cluster and if have an ELT paradigm implemented, we could dump the CSV data in to the cloud data warehouse, for example AWS Redshift. Then we could use DBT to perfrom data cleaning and processing.
+Alternative 3: If our requirements surpass the capacity of airflow cluster and if have an ELT paradigm implemented, we could dump the CSV data in to the cloud data warehouse, for example AWS Redshift. Then we could use DBT to perfrom data cleaning and processing.
