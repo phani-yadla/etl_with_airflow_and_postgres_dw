@@ -131,3 +131,14 @@ To stop and delete containers,:
 To stop and delete containers, delete volumes with database data and download images, run:
 
     docker compose -f airflow/docker-compose.yml down --volumes --rmi all
+
+
+## Limitations and alternatives when the data size increases
+
+This workflow would work well for small to medium data sizes. When we start dealing with Gigabytes of data(more number of files), job might consume more and more time.
+
+Alternative 1: Let's say we are receiving huge number of files to be processed. We could push new object creation alerts messages to pub sub service and have mutliple dag runs for the job with message pull limit to split the load between jobs.
+
+Alternative 2: If our requirements surpass the capacity of airflow cluster and if have an ETL paradigm implemented, lets say we use spark, we could use spark to read these files, process them and dump the results at a targeted destination.
+
+Alternative #: If our requirements surpass the capacity of airflow cluster and if have an ELT paradigm implemented, we could dump the CSV data in to the cloud data warehouse, for example AWS Redshift. Then we could use DBT to perfrom data cleaning and processing.

@@ -1,2 +1,3 @@
 airflow/logs
 .pytest_cache/
+__pycache__/
